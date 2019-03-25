@@ -15,5 +15,10 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/to_img_activity_view"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="to img activity"/>
 
 </android.support.constraint.ConstraintLayout>

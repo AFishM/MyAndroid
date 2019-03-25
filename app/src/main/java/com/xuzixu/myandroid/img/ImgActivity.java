@@ -12,13 +12,19 @@ import com.xuzixu.myandroid.R;
 
 import java.io.IOException;
 
+
 public class ImgActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_img);
-
+        IntensifyImageView intensifyImageView=findViewById(R.id.intensify_image);
+        try {
+            intensifyImageView.setImage(getAssets().open("poster.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

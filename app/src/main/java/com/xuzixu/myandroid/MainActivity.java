@@ -2,9 +2,13 @@ package com.xuzixu.myandroid;
 
 import android.app.ActivityManager;
 import android.content.ComponentCallbacks2;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import com.xuzixu.myandroid.img.ImgActivity;
 
 public class MainActivity extends AppCompatActivity implements ComponentCallbacks2 {
 
@@ -21,6 +25,13 @@ public class MainActivity extends AppCompatActivity implements ComponentCallback
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
+        findViewById(R.id.to_img_activity_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ImgActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**
