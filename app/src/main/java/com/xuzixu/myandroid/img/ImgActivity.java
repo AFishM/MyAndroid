@@ -1,9 +1,11 @@
 package com.xuzixu.myandroid.img;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapRegionDecoder;
 import android.graphics.Rect;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -19,12 +21,14 @@ public class ImgActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_img);
-        IntensifyImageView intensifyImageView=findViewById(R.id.intensify_image);
+        IntensifyImageView intensifyImageView=(IntensifyImageView)findViewById(R.id.intensify_image);
         try {
-            intensifyImageView.setImage(getAssets().open("poster.jpg"));
+            intensifyImageView.setImage(getAssets().open("xingren.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Runtime.getRuntime().maxMemory();
+        long i=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
     }
 
     /**

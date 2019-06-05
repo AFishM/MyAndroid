@@ -49,7 +49,7 @@ public class IntensifyImageView extends View implements IntensifyImage,
 
     private volatile boolean vFling = false;
 
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = true;
 
     public IntensifyImageView(Context context) {
         this(context, null, 0);

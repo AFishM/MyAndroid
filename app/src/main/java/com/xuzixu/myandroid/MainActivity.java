@@ -9,8 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.xuzixu.myandroid.img.ImgActivity;
+import com.xuzixu.myandroid.view.ViewActivity;
 
-public class MainActivity extends AppCompatActivity implements ComponentCallbacks2 {
+public class MainActivity extends AppCompatActivity implements ComponentCallbacks2, View.OnClickListener {
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -25,13 +26,8 @@ public class MainActivity extends AppCompatActivity implements ComponentCallback
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
-        findViewById(R.id.to_img_activity_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ImgActivity.class);
-                startActivity(intent);
-            }
-        });
+        findViewById(R.id.to_img_activity_view).setOnClickListener(this);
+        findViewById(R.id.to_view_activity_view).setOnClickListener(this);
     }
 
     /**
@@ -108,6 +104,18 @@ public class MainActivity extends AppCompatActivity implements ComponentCallback
         assert activityManager != null;
         activityManager.getMemoryInfo(memoryInfo);
         return memoryInfo;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.to_img_activity_view:
+                startActivity(new Intent(MainActivity.this, ImgActivity.class));
+                break;
+            case R.id.to_view_activity_view:
+                startActivity(new Intent(MainActivity.this, ViewActivity.class));
+                break;
+        }
     }
 
     /*
